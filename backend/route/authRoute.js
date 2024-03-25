@@ -10,6 +10,9 @@ router
   .route("/register")
   .post(validate(singupSchema), authControllers.register);
 
-router.route("/login").post(authControllers.login);
+router.route("/login").post(
+  // validate(singupSchema)
+  authControllers.login
+);
 
 module.exports = router;

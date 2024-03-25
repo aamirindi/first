@@ -1,12 +1,17 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const router = require("./route/authRoute");
+const authRoute = require("./route/authRoute");
+const contactRoute = require("./route/contactRoute");
 const connetDb = require("./db/db");
+const errorMiddleware = require("./middleware/errorMiddleware");
 
 app.use(express.json());
 
-app.use("/api/auth", router);
+app.use("/api/auth", authRoute);
+app.use("/api/form", contactRoute);
+
+app.use(errorMiddleware);
 
 // PORT
 const PORT = process.env.PORT;

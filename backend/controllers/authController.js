@@ -2,16 +2,17 @@ const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 
 // Home Logic
-const home = async (req, res) => {
+const home = async (req, res, next) => {
   try {
     res.status(200).send("Home Page");
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    next(error);
   }
 };
 
 // Registration Logic
-const register = async (req, res) => {
+const register = async (req, res, next) => {
   try {
     // 1. Retrieve the data          (retrieve user data)
     // 2. Check email existence      (check if the email is already registered)
@@ -41,12 +42,13 @@ const register = async (req, res) => {
       userId: userCreated._id.toString(),
     });
   } catch (error) {
-    res.status(500).send({ message: "internal server errror" });
+    // res.status(500).send({ message: "internal server errror" });
+    next(error);
   }
 };
 
 // User Login
-const login = async (req, res) => {
+const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
@@ -68,7 +70,8 @@ const login = async (req, res) => {
       res.status(401).json({ message: "Invalid email or password" });
     }
   } catch (error) {
-    res.status(500).send({ message: "internal server errror" });
+    // res.status(500).send({ message: "internal server errror" });
+    next(error);
   }
 };
 

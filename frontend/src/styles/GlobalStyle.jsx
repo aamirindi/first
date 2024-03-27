@@ -60,4 +60,8 @@ export const GlobalStyle = createGlobalStyle`
         border-radius: 6px;
 
     }
+
+    ::selection{
+        color: #818181;
+    }
 `;

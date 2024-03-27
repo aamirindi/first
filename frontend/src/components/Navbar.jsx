@@ -81,6 +81,17 @@ const NavStyled = styled.div`
     ul {
       display: flex;
       gap: 3.2rem;
+      .active {
+        color: var(--btn-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: all 0.4s ease-in-out;
+      }
+      li {
+        a {
+          color: #818181;
+        }
+      }
     }
   }
 

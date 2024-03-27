@@ -55,7 +55,7 @@ const Sidebar = () => {
                 <NavLink
                   to="/"
                   onClick={handleNavLinkClick}
-                  activeClassName="active-link">
+                  activeClassName="active">
                   Home
                 </NavLink>
               </li>
@@ -121,9 +121,11 @@ const Sidebar = () => {
 const SidebarStyled = styled.div`
   display: flex;
   padding: 1.6em 1em;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
+  width: 100%;
   h1 {
     letter-spacing: 0.2rem;
+    position: absolute;
   }
 
   .sidebar {
@@ -149,12 +151,18 @@ const SidebarStyled = styled.div`
       justify-content: center;
       align-items: center;
       gap: 1rem;
+
+      .active {
+        color: var(--btn-color);
+        font-size: 2rem;
+        transition: all 0.4s ease-in-out;
+      }
     }
 
     & a {
       padding: 8px;
       text-decoration: none;
-      font-size: 25px;
+      font-size: 1.5rem;
       color: #818181;
       display: block;
       transition: 0.3s;
@@ -194,8 +202,6 @@ const SidebarStyled = styled.div`
   }
 
   .sidebar-open {
-    width: 250px;
-
     .openbtn {
       display: none;
     }
@@ -210,12 +216,9 @@ const SidebarStyled = styled.div`
       display: block;
     }
 
-    .sidebar {
-      padding-top: 10px;
-    }
-
     .sidebar-open {
       width: 100%;
+      overflow: hidden;
 
       & .openbtn {
         display: block;

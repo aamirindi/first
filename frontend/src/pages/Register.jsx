@@ -1,7 +1,7 @@
 import Lottie from "react-lottie";
 import animationData from "../assets/lotties/registration";
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -11,23 +11,20 @@ const Register = () => {
     password: "",
   });
 
-  const [width, setWidth] = useState(400);
-  const [height, setHeight] = useState(400);
+  const [width, setWidth] = useState(350);
+  const [height, setHeight] = useState(350);
 
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth <= 960) {
-        setWidth(300);
-        setHeight(300);
-      } else {
-        setWidth(400);
-        setHeight(400);
-      }
+  const handleResize = () => {
+    if (window.innerWidth <= 960) {
+      setWidth(250);
+      setHeight(250);
+    } else {
+      setWidth(300);
+      setHeight(300);
     }
+  };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  window.addEventListener("resize", handleResize);
 
   const handleInput = (e) => {
     let name = e.target.name;
@@ -56,7 +53,12 @@ const Register = () => {
     <RegisterStyled>
       <div className="container">
         <div className="registration-image">
-          <Lottie options={defaultOptions} width={width} height={height} />
+          <Lottie
+            options={defaultOptions}
+            isClickToPauseDisabled={true}
+            width={width}
+            height={height}
+          />
         </div>
         <div className="register">
           <form onSubmit={handleSubmit}>

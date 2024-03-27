@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-size: clamp(1rem, 1.5vw, 1.2rem);
         font-family: 'Poppins', sans-serif;
+        overflow: auto;
     }
 
     h1 {
@@ -28,7 +29,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     p,
-    li,
     label,
     input,
     textarea {

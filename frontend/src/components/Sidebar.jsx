@@ -37,7 +37,11 @@ const Sidebar = () => {
       {isDesktop ? (
         <Navbar />
       ) : (
-        <SidebarStyled>
+        <SidebarStyled isSidebarOpen={isSidebarOpen}>
+          <div
+            className="sidebar-overlay"
+            onClick={closeNav}
+            style={{ display: isSidebarOpen ? "block" : "none" }}></div>
           <div className="logo-brand">
             <NavLink to="/" onClick={closeNav}>
               <h1>Admin Panel</h1>
@@ -102,9 +106,7 @@ const Sidebar = () => {
             </ul>
           </div>
           <div>
-            <div
-              id="main"
-              style={{ marginLeft: isSidebarOpen ? "250px" : "0" }}>
+            <div id="main" style={{ marginLeft: isSidebarOpen ? "70%" : "0" }}>
               {!isDesktop && (
                 <button className="openbtn" onClick={openNav}>
                   &#9776;
@@ -119,6 +121,7 @@ const Sidebar = () => {
 };
 
 const SidebarStyled = styled.div`
+  position: relative;
   display: flex;
   padding: 1.6em 1em;
   margin-bottom: 3em;
@@ -130,13 +133,12 @@ const SidebarStyled = styled.div`
 
   .sidebar {
     height: 100%;
-    width: 0;
     position: fixed;
     top: 0;
     right: 0;
     background-color: var(--dark-color);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: width 0.5s ease-in-out;
     z-index: 1;
     padding-top: 60px;
     display: flex;
@@ -184,8 +186,21 @@ const SidebarStyled = styled.div`
     }
   }
 
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4.5px);
+    z-index: 1;
+    display: none;
+    transition: background-color 0.5s ease-in-out;
+  }
+
   #main {
-    transition: margin-left 0.5s;
+    transition: margin-left 0.5s ease-in-out;
     padding: 0px;
   }
 
@@ -202,6 +217,8 @@ const SidebarStyled = styled.div`
   }
 
   .sidebar-open {
+    width: 70%;
+
     .openbtn {
       display: none;
     }
@@ -217,7 +234,8 @@ const SidebarStyled = styled.div`
     }
 
     .sidebar-open {
-      width: 100%;
+      width: 70%;
+
       overflow: hidden;
 
       & .openbtn {
@@ -227,7 +245,6 @@ const SidebarStyled = styled.div`
   }
 
   .desktop {
-    background-color: #111;
     display: flex;
     justify-content: center;
     height: 60px;

@@ -50,7 +50,6 @@ const Contact = () => {
 
   return (
     <ContactStyled>
-      <h1>Contact Us</h1>
       <div className="contact-container">
         <div className="contact-img">
           <Lottie
@@ -62,6 +61,7 @@ const Contact = () => {
         </div>
         <div className="contact-form">
           <form onSubmit={handleSubmit}>
+            <h1>Contact Us</h1>
             <div>
               <label htmlFor="username">Username</label>
               <input

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -11,14 +11,14 @@ const Home = () => {
           </section>
         </main>
       </HomeStyled>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
 
 const HomeStyled = styled.div`
-  background-color: red;
   height: 100%;
+  background-color: red;
 `;
 
 export default Home;

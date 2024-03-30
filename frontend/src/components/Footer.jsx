@@ -9,16 +9,15 @@ const Footer = () => {
   );
 };
 
-const FooterStyled = styled.div`
-  div {
-    width: 100%;
-    background-color: var(--btn-color);
-    bottom: 0;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+const FooterStyled = styled.footer`
+  position: fixed;
+  width: 100%;
+  background-color: var(--btn-color);
+  bottom: 0;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default Footer;

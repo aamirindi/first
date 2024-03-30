@@ -235,7 +235,6 @@ const SidebarStyled = styled.div`
 
     .sidebar-open {
       width: 70%;
-
       overflow: hidden;
 
       & .openbtn {
